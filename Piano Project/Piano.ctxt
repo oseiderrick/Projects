@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Piano
+comment0.text=\n\ A\ piano\ that\ can\ be\ played\ with\ the\ computer\ keyboard.\n\ \n\ @author\:\ M.\ Kolling\n\ @version\:\ 0.1\n
+comment1.params=
+comment1.target=Piano()
+comment1.text=\n\ Make\ the\ piano.\n
+comment2.params=
+comment2.target=void\ makeKeys()
+comment3.params=instrument
+comment3.target=void\ changeSoundFilesForKeys(int)
+numComments=4
