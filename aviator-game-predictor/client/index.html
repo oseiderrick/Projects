@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aviator Predictor Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>Aviator Predictor</h1>
+    <p>Enter comma-separated crash multipliers (latest last)</p>
+    <input id="hist" style="width: 400px;" value="1.1, 2.4, 1.8, 3.2, 5.1, 0.9"/>
+    <button id="go">Predict</button>
+    <pre id="out"></pre>
+
+    <script>
+      document.getElementById("go").onclick = async () => {
+        const raw = document.getElementById("hist").value;
+        const history = raw.split(",").map(x => parseFloat(x.trim())).filter(x => !isNaN(x));
+        const res = await fetch("http://127.0.0.1:5000/predict", {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify({history})
+        });
+        document.getElementById("out").textContent = await res.text();
+      };
+    </script>
+  </body>
+</html>
